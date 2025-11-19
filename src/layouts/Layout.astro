@@ -1,0 +1,32 @@
+---
+import '@fontsource/inter';
+import '@fontsource/jetbrains-mono';
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		
+		<!-- SEO & Open Graph -->
+		<title>{title}</title>
+		<meta name="description" content="My portfolio as a System Engineer and Network Architect specializing in fiber backhauls, Cloudflare infrastructure, and full-stack development.">
+		<meta property="og:title" content="Andrew Clausen | System Engineer & Network Architect">
+		<meta property="og:description" content="Bridging the gap between physical infrastructure and modern software. View my projects, experience, and certifications.">
+		<meta property="og:type" content="website">
+		<meta property="og:image" content="https://images.unsplash.com/photo-1558494949-ef526b0042a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+		<meta name="twitter:card" content="summary_large_image">
+	</head>
+	<body class="bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-300 antialiased selection:bg-accent-400 selection:text-slate-950 transition-colors duration-300">
+		<slot />
+	</body>
+</html>

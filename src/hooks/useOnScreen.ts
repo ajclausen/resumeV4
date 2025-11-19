@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef, MutableRefObject } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import type { MutableRefObject } from 'react';
 
 export function useOnScreen<T extends HTMLElement>(options?: IntersectionObserverInit): [MutableRefObject<T | null>, boolean] {
   const ref = useRef<T | null>(null);

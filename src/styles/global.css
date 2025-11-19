@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar for a polished look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+:not(.dark) ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+:not(.dark) ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+:not(.dark) ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Print Optimization */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .print\:hidden, header, .fixed, button, .bg-slate-900, .dark\:bg-slate-900 {
+    display: none !important;
+  }
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+  section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+  /* Hide decorative blobs and gradients */
+  div[class*="blur-"], div[class*="bg-gradient"] {
+    display: none !important;
+  }
+  /* Reset text colors for print */
+  p, h1, h2, h3, h4, h5, h6, span, li {
+    color: #000 !important;
+  }
+}

@@ -1,4 +1,4 @@
-import { Job, Education, Certification, Project } from './types';
+import type { Job, Education, Certification, Project } from './types';
 
 export const BIO = {
   name: "Andrew Clausen",
