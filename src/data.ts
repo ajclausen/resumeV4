@@ -1,4 +1,5 @@
-import type { Job, Education, Certification, Project } from './types';
+import type { Job, Education, Certification, Project, TechCategory } from './types';
+import { Server, Globe, Code, Database, Cpu, Shield, Wifi, Layers, Terminal, Cloud, Radio, Activity, Video, Lock } from 'lucide-react';
 
 export const BIO = {
   name: "Andrew Clausen",
@@ -20,7 +21,13 @@ export const EXPERIENCE: Job[] = [
     role: "System Engineer",
     company: "ECO Parking Technologies",
     period: "Feb 2020 — Present",
-    description: "Architect and maintain network infrastructure for 50+ smart parking facilities nationwide, including a 693-sensor Las Vegas casino with custom 10G fiber backhaul. Led company-wide migration from legacy APN to Cloudflare architecture, eliminating vendor lock-in and saving thousands monthly. Built three production applications that streamline operations: React-based cost calculator, full-stack project tracker with Ruby/Fishbowl integration, and network management tools.",
+    description: [
+      "Architected **enterprise network overhaul** implementing Ubiquiti UniFi with 802.1Q VLANs across 50+ facilities nationwide, improving security posture and enabling granular traffic control for 10,000+ IoT sensors.",
+      "Led **Cloudflare Zero Trust migration** replacing legacy Verizon APN, reducing costs by $36K annually while enabling secure remote access and eliminating single point of failure.",
+      "Designed custom **10G fiber backhaul** for 693-sensor Las Vegas casino deployment, achieving **99.9% uptime SLA** in high-traffic environment with 50ms latency requirement.",
+      "Built production applications streamlining operations: **React cost calculator** (reduced quotes from 30 to 5 minutes), **Ruby microservice** for ERP integration (saved 24 hours/week), and custom monitoring dashboard.",
+      "Implemented **infrastructure as code** practices using Docker and automated deployment pipelines, reducing deployment time by 75% and eliminating configuration drift."
+    ],
     skills: ["React", "TypeScript", "Node.js", "Ruby", "PostgreSQL", "Docker", "Cloudflare Tunnels", "Ubiquiti UniFi", "10G Fiber", "Linux"]
   },
   {
@@ -28,7 +35,11 @@ export const EXPERIENCE: Job[] = [
     role: "President",
     company: "NexusOpus",
     period: "Oct 2017 — Mar 2020",
-    description: "School-initiated learning opportunity that evolved into managing Apprentice University's web presence. Successfully recovered website after security breach through manual file-by-file inspection. Negotiated tuition reduction in exchange for web management services. Gained hands-on experience with WordPress security, site migrations, and infrastructure management.",
+    description: [
+      "Recovered compromised **WordPress infrastructure** through manual security audit and reimplementation.",
+      "Managed **DNS, SSL certificates, and web hosting** for educational institution serving 500+ students.",
+      "Implemented automated **backup system and security hardening protocols**, preventing future breaches."
+    ],
     skills: ["WordPress", "Security Recovery", "DNS Management", "FTP", "Database Admin", "Adobe Suite"]
   },
   {
@@ -36,7 +47,11 @@ export const EXPERIENCE: Job[] = [
     role: "Junior Systems Engineer",
     company: "Flexware Innovation",
     period: "Sep 2019 — Jan 2020",
-    description: "Started with zero Linux/networking experience and became primary technical resource within months. Built and deployed gateway hardware for smart parking systems, configured mesh networks, and annotated thousands of images for ML training. Impressed leadership leading to direct hire by client company (ECO) as their first full-time technical employee.",
+    description: [
+      "Advanced from zero Linux/networking experience to **primary technical resource in 3 months**, deploying 20+ IoT gateway systems.",
+      "Configured **Ubuntu-based gateways** with custom networking stack, managing DHCP, DNS, and mesh network topology for 50-100 sensors per site.",
+      "Demonstrated exceptional technical growth, earning **direct-hire offer** as client's first full-time infrastructure engineer."
+    ],
     skills: ["Ubuntu Server", "Linux CLI", "Ubiquiti", "DHCP", "IoT Sensors", "Machine Learning", "Network Architecture"]
   },
   {
@@ -156,5 +171,44 @@ export const PROJECTS: Project[] = [
     description: "Internal CLI and dashboard tools for managing configuration consistency across 50+ distributed sites. Automates updates for firewall rules and VLAN configurations via SSH and API hooks.",
     techStack: ["Python", "Bash", "Linux", "Ansible"],
     featured: false
+  }
+];
+
+export const TECH_CATEGORIES: TechCategory[] = [
+  {
+    title: "Infrastructure & Network",
+    gradient: "from-cyan-500 to-blue-600",
+    items: [
+      { name: "Ubiquiti UniFi", icon: Wifi, color: "text-blue-400" },
+      { name: "Ubuntu Core/Snaps", icon: Terminal, color: "text-orange-500" },
+      { name: "Cloudflare Zero Trust", icon: Shield, color: "text-orange-400" },
+      { name: "VLAN Design", icon: Layers, color: "text-cyan-400" },
+      { name: "Azure Cloud", icon: Cloud, color: "text-blue-500" },
+      { name: "Docker & LXC", icon: Server, color: "text-blue-400" }
+    ]
+  },
+  {
+    title: "Development",
+    gradient: "from-violet-500 to-purple-600",
+    items: [
+      { name: "React/TypeScript", icon: Code, color: "text-cyan-400" },
+      { name: "Python", icon: Terminal, color: "text-yellow-300" },
+      { name: "Node.js", icon: Server, color: "text-green-500" },
+      { name: "PostgreSQL", icon: Database, color: "text-blue-400" },
+      { name: "GraphQL", icon: Globe, color: "text-pink-500" },
+      { name: "Next.js", icon: Globe, color: "text-white" }
+    ]
+  },
+  {
+    title: "Specialized Engineering",
+    gradient: "from-pink-500 to-rose-600",
+    items: [
+      { name: "WebRTC", icon: Video, color: "text-red-400" },
+      { name: "RTSP Streaming", icon: Radio, color: "text-orange-400" },
+      { name: "GStreamer", icon: Activity, color: "text-yellow-400" },
+      { name: "Protocol Reverse Eng.", icon: Lock, color: "text-emerald-400" },
+      { name: "Packet Analysis", icon: Activity, color: "text-blue-400" },
+      { name: "IoT Sensors", icon: Cpu, color: "text-green-400" }
+    ]
   }
 ];

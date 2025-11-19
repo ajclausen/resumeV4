@@ -9,7 +9,7 @@ export interface Job {
   role: string;
   company: string;
   period: string;
-  description: string;
+  description: string | string[];
   skills: string[];
 }
 
@@ -45,4 +45,16 @@ export interface SocialLink {
   url: string;
   icon: ComponentType<{ className?: string }>;
   label: string;
+}
+
+export interface TechItem {
+  name: string;
+  icon: ComponentType<{ className?: string }>;
+  color: string;
+}
+
+export interface TechCategory {
+  title: string;
+  items: TechItem[];
+  gradient: string;
 }

@@ -36,9 +36,27 @@ export const Experience: React.FC = () => {
                     </span>
                   </div>
 
-                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6 max-w-3xl group-hover:text-slate-700 dark:group-hover:text-slate-300 transition-colors duration-300">
-                    {job.description}
-                  </p>
+                  <div className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6 max-w-3xl group-hover:text-slate-700 dark:group-hover:text-slate-300 transition-colors duration-300">
+                    {Array.isArray(job.description) ? (
+                      <ul className="space-y-2 list-disc pl-4">
+                        {job.description.map((item, i) => (
+                          <li key={i}>
+                            {item.split(/(\*\*.*?\*\*)/).map((part, index) =>
+                              part.startsWith('**') && part.endsWith('**') ? (
+                                <strong key={index} className="font-semibold text-slate-800 dark:text-slate-200">
+                                  {part.slice(2, -2)}
+                                </strong>
+                              ) : (
+                                part
+                              )
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p>{job.description}</p>
+                    )}
+                  </div>
 
                   <div className="flex flex-wrap gap-2">
                     {job.skills.map((skill) => (

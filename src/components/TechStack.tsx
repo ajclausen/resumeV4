@@ -1,56 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Server, Globe, Code, Database, Cpu, Shield, Wifi, Layers, Terminal } from 'lucide-react';
-
-interface TechItem {
-    name: string;
-    icon: React.ElementType;
-    color: string;
-}
-
-interface TechCategory {
-    title: string;
-    items: TechItem[];
-    gradient: string;
-}
-
-const TECH_CATEGORIES: TechCategory[] = [
-    {
-        title: "Network Architecture",
-        gradient: "from-cyan-500 to-blue-600",
-        items: [
-            { name: "10G Fiber", icon: Wifi, color: "text-cyan-400" },
-            { name: "Ubiquiti UniFi", icon: Server, color: "text-blue-400" },
-            { name: "Cloudflare", icon: Globe, color: "text-orange-400" },
-            { name: "Cisco IOS", icon: Terminal, color: "text-emerald-400" },
-            { name: "VPN / Tunnels", icon: Shield, color: "text-violet-400" },
-            { name: "DNS Mgmt", icon: Globe, color: "text-indigo-400" }
-        ]
-    },
-    {
-        title: "System Engineering",
-        gradient: "from-violet-500 to-purple-600",
-        items: [
-            { name: "Linux / Bash", icon: Terminal, color: "text-yellow-400" },
-            { name: "Docker", icon: Layers, color: "text-blue-500" },
-            { name: "Ansible", icon: Code, color: "text-red-400" },
-            { name: "IoT Sensors", icon: Cpu, color: "text-green-400" },
-            { name: "Python", icon: Code, color: "text-yellow-300" },
-            { name: "Virtualization", icon: Server, color: "text-purple-400" }
-        ]
-    },
-    {
-        title: "Full Stack Dev",
-        gradient: "from-pink-500 to-rose-600",
-        items: [
-            { name: "React / TS", icon: Code, color: "text-cyan-400" },
-            { name: "Node.js", icon: Server, color: "text-green-500" },
-            { name: "PostgreSQL", icon: Database, color: "text-blue-400" },
-            { name: "Ruby", icon: Code, color: "text-red-500" },
-            { name: "Tailwind CSS", icon: Code, color: "text-sky-400" },
-            { name: "Next.js", icon: Globe, color: "text-white" }
-        ]
-    }
-];
+import { Shield } from 'lucide-react';
+import { TECH_CATEGORIES } from '../data';
 
 interface TechStackProps {
     className?: string;
