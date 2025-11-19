@@ -163,10 +163,10 @@ export const Hero: React.FC = () => {
               <a href="#contact" className="px-6 py-3 bg-accent-500 hover:bg-accent-400 text-white dark:text-slate-950 font-semibold rounded-lg transition-all hover:scale-105 shadow-[0_0_20px_-5px_rgba(20,184,166,0.4)]">
                 Get in Touch
               </a>
-              <a href="https://github.com/ajclausen" target="_blank" rel="noreferrer" className="p-3 rounded-lg bg-white dark:bg-slate-800/50 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors border border-slate-200 dark:border-slate-700/50 shadow-sm dark:shadow-none">
+              <a href="https://github.com/ajclausen" target="_blank" rel="noreferrer" aria-label="GitHub Profile" className="p-3 rounded-lg bg-white dark:bg-slate-800/50 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors border border-slate-200 dark:border-slate-700/50 shadow-sm dark:shadow-none">
                 <Github className="w-6 h-6" />
               </a>
-              <a href="https://www.linkedin.com/in/andrewjclausen/" target="_blank" rel="noreferrer" className="p-3 rounded-lg bg-white dark:bg-slate-800/50 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors border border-slate-200 dark:border-slate-700/50 shadow-sm dark:shadow-none">
+              <a href="https://www.linkedin.com/in/andrewjclausen/" target="_blank" rel="noreferrer" aria-label="LinkedIn Profile" className="p-3 rounded-lg bg-white dark:bg-slate-800/50 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors border border-slate-200 dark:border-slate-700/50 shadow-sm dark:shadow-none">
                 <Linkedin className="w-6 h-6" />
               </a>
             </div>
@@ -181,7 +181,7 @@ export const Hero: React.FC = () => {
         </div>
       </div>
 
-      <a href="#about" className="absolute bottom-8 left-1/2 -translate-x-1/2 text-slate-400 dark:text-slate-500 hover:text-accent-500 dark:hover:text-accent-400 transition-colors animate-bounce">
+      <a href="#about" aria-label="Scroll to About section" className="absolute bottom-8 left-1/2 -translate-x-1/2 text-slate-400 dark:text-slate-500 hover:text-accent-500 dark:hover:text-accent-400 transition-colors animate-bounce">
         <ChevronDown className="w-8 h-8" />
       </a>
     </section>

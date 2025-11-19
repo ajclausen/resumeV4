@@ -76,34 +76,37 @@ export const Education: React.FC = () => {
           <div className="md:col-span-6 lg:col-span-12">
             <Section delay={300}>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                {CERTIFICATIONS.map((cert) => (
-                  <a
-                    key={cert.id}
-                    href={cert.url}
-                    target={cert.url ? "_blank" : undefined}
-                    rel="noopener noreferrer"
-                    className={`
-                      group relative p-4 rounded-xl border transition-all duration-300
-                      ${cert.url
-                        ? 'bg-white dark:bg-slate-900/50 border-slate-200 dark:border-slate-800/50 hover:border-accent-500/50 hover:shadow-lg dark:hover:shadow-accent-500/10 cursor-pointer'
-                        : 'bg-slate-50 dark:bg-slate-900/30 border-transparent cursor-default'}
-                    `}
-                  >
-                    <div className="flex items-start justify-between mb-2">
-                      <Award className={`w-5 h-5 ${cert.url ? 'text-accent-500' : 'text-slate-400'}`} />
-                      {cert.url && <ExternalLink className="w-3 h-3 text-slate-400 group-hover:text-accent-500 transition-colors" />}
-                    </div>
-                    <h4 className="font-bold text-slate-700 dark:text-slate-200 text-sm mb-1 group-hover:text-accent-500 transition-colors">
-                      {cert.name}
-                    </h4>
-                    <div className="flex justify-between items-center text-xs text-slate-500">
-                      <span>{cert.issuer}</span>
-                      <span className="font-mono bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded">
-                        {cert.year}
-                      </span>
-                    </div>
-                  </a>
-                ))}
+                {CERTIFICATIONS.map((cert) => {
+                  const Tag = cert.url ? 'a' : 'div';
+                  return (
+                    <Tag
+                      key={cert.id}
+                      href={cert.url}
+                      target={cert.url ? "_blank" : undefined}
+                      rel={cert.url ? "noopener noreferrer" : undefined}
+                      className={`
+                        group relative p-4 rounded-xl border transition-all duration-300
+                        ${cert.url
+                          ? 'bg-white dark:bg-slate-900/50 border-slate-200 dark:border-slate-800/50 hover:border-accent-500/50 hover:shadow-lg dark:hover:shadow-accent-500/10 cursor-pointer'
+                          : 'bg-slate-50 dark:bg-slate-900/30 border-transparent cursor-default'}
+                      `}
+                    >
+                      <div className="flex items-start justify-between mb-2">
+                        <Award className={`w-5 h-5 ${cert.url ? 'text-accent-500' : 'text-slate-400'}`} />
+                        {cert.url && <ExternalLink className="w-3 h-3 text-slate-400 group-hover:text-accent-500 transition-colors" />}
+                      </div>
+                      <h4 className="font-bold text-slate-700 dark:text-slate-200 text-sm mb-1 group-hover:text-accent-500 transition-colors">
+                        {cert.name}
+                      </h4>
+                      <div className="flex justify-between items-center text-xs text-slate-500">
+                        <span>{cert.issuer}</span>
+                        <span className="font-mono bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded">
+                          {cert.year}
+                        </span>
+                      </div>
+                    </Tag>
+                  );
+                })}
               </div>
             </Section>
           </div>
