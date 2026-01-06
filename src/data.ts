@@ -9,7 +9,7 @@ export const BIO = {
     "I'm a self-taught System Engineer who transformed from zero technical knowledge into the sole network architect for 50+ smart parking facilities nationwide. My unconventional path through Apprentice University's hands-on program taught me that the best solutions come from understanding both the technical details and business impact.",
     "At ECO Parking Technologies, I've built the infrastructure that powers some of the nation's largest parking deployments, including a 693-sensor Las Vegas casino requiring custom 10G fiber solutions. When our legacy system threatened to limit our growth, I led the migration to a modern Cloudflare-based architecture, eliminating vendor lock-in and saving thousands monthly.",
     "Beyond infrastructure, I'm a builder at heart. I've created production applications that our teams use daily—from a React-based cost calculator that speeds up sales quotes to a full-stack project tracker that integrates with legacy systems.",
-    "Currently pursuing my BSNES degree to formalize my practical experience, I'm excited about the intersection of IoT, cloud infrastructure, and smart city technology."
+    "Currently pursuing my BSCNE degree to formalize my practical experience, I'm excited about the intersection of IoT, cloud infrastructure, and smart city technology."
   ],
   email: "andrew@clausen.app",
   location: "Remote / Indianapolis, IN"
@@ -37,7 +37,7 @@ export const EXPERIENCE: Job[] = [
     period: "Oct 2017 — Mar 2020",
     description: [
       "Recovered compromised **WordPress infrastructure** through manual security audit and reimplementation.",
-      "Managed **DNS, SSL certificates, and web hosting** for educational institution serving 500+ students.",
+      "Managed **DNS, SSL certificates, and web hosting** for educational institution serving 40+ students.",
       "Implemented automated **backup system and security hardening protocols**, preventing future breaches."
     ],
     skills: ["WordPress", "Security Recovery", "DNS Management", "FTP", "Database Admin", "Adobe Suite"]
@@ -103,11 +103,11 @@ export const EXPERIENCE: Job[] = [
 export const EDUCATION: Education[] = [
   {
     id: "wgu",
-    degree: "B.S. Network Engineering and Security",
+    degree: "B.S. Cloud and Network Engineering",
     institution: "Western Governors University",
     period: "In Progress",
-    description: "Formalizing my practical experience with comprehensive studies in network architecture, security protocols, and system administration.",
-    courses: ["Network Security", "Cloud Infrastructure", "System Architecture", "Database Management", "Cybersecurity Fundamentals"]
+    description: "Formalizing my practical experience with comprehensive studies in cloud architecture, network design, and system administration.",
+    courses: ["Cloud Architecture", "Network Infrastructure", "System Administration", "Database Management", "Cybersecurity Fundamentals"]
   },
   {
     id: "apprentice",
