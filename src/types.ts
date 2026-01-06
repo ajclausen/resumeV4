@@ -28,6 +28,7 @@ export interface Certification {
   issuer: string;
   year: string;
   url?: string;
+  badge?: string;
 }
 
 export interface Project {

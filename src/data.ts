@@ -116,31 +116,43 @@ export const EDUCATION: Education[] = [
 
 export const CERTIFICATIONS: Certification[] = [
   {
+    id: "security-plus",
+    name: "CompTIA Security+",
+    issuer: "CompTIA",
+    year: "2025",
+    url: "https://www.credly.com/badges/7f17d88b-5764-409b-8a1f-17f83e8fa196/public_url",
+    badge: "/comptia-security-ce-certification.png"
+  },
+  {
     id: "network-plus",
     name: "CompTIA Network+",
     issuer: "CompTIA",
     year: "2025",
-    url: "https://www.credly.com/badges/37447265-29b4-42bb-9146-27117c2a0a29/public_url"
-  },
-  {
-    id: "linux-essentials",
-    name: "LPI Linux Essentials",
-    issuer: "Linux Professional Institute",
-    year: "2025",
-    url: "https://www.credly.com/badges/d7d368b1-b110-4ec9-930c-a401e903b945/public_url"
-  },
-  {
-    id: "itil-v4",
-    name: "ITIL v4 Foundations",
-    issuer: "AXELOS",
-    year: "2025"
+    url: "https://www.credly.com/badges/37447265-29b4-42bb-9146-27117c2a0a29/public_url",
+    badge: "/comptia-network-ce-certification.1.png"
   },
   {
     id: "comptia-a-plus",
     name: "CompTIA A+",
     issuer: "CompTIA",
     year: "2025",
-    url: "https://www.credly.com/badges/67e453c5-07cc-45cf-9805-c747c5b87cd1/public_url"
+    url: "https://www.credly.com/badges/67e453c5-07cc-45cf-9805-c747c5b87cd1/public_url",
+    badge: "/comptia-a-ce-certification.1.png"
+  },
+  {
+    id: "linux-essentials",
+    name: "LPI Linux Essentials",
+    issuer: "Linux Professional Institute",
+    year: "2025",
+    url: "https://www.credly.com/badges/d7d368b1-b110-4ec9-930c-a401e903b945/public_url",
+    badge: "/linux-essentials-certificate.png"
+  },
+  {
+    id: "itil-v4",
+    name: "ITIL v4 Foundations",
+    issuer: "AXELOS",
+    year: "2025",
+    badge: "/ITIL-4-Certification.webp"
   },
   {
     id: "eagle-scout",

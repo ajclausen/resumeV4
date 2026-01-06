@@ -72,10 +72,15 @@ export const Education: React.FC = () => {
             </Section>
           </div>
 
-          {/* Certifications - Grid Tiles */}
+          {/* Certifications - Premium Grid */}
           <div className="md:col-span-6 lg:col-span-12">
             <Section delay={300}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="mb-6 flex items-center gap-3">
+                <Award className="w-5 h-5 text-accent-500" />
+                <h3 className="font-bold text-slate-700 dark:text-slate-200 uppercase tracking-wider text-sm">Certifications & Credentials</h3>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
                 {CERTIFICATIONS.map((cert) => {
                   const Tag = cert.url ? 'a' : 'div';
                   return (
@@ -85,24 +90,55 @@ export const Education: React.FC = () => {
                       target={cert.url ? "_blank" : undefined}
                       rel={cert.url ? "noopener noreferrer" : undefined}
                       className={`
-                        group relative p-4 rounded-xl border transition-all duration-300
+                        group relative flex flex-col items-center text-center p-5 rounded-2xl transition-all duration-500
                         ${cert.url
-                          ? 'bg-white dark:bg-slate-900/50 border-slate-200 dark:border-slate-800/50 hover:border-accent-500/50 hover:shadow-lg dark:hover:shadow-accent-500/10 cursor-pointer'
-                          : 'bg-slate-50 dark:bg-slate-900/30 border-transparent cursor-default'}
+                          ? 'cursor-pointer hover:-translate-y-2 hover:shadow-xl dark:hover:shadow-accent-500/10'
+                          : ''}
+                        bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-slate-950
+                        border border-slate-200/80 dark:border-slate-800/80
+                        hover:border-accent-500/30 dark:hover:border-accent-500/30
                       `}
                     >
-                      <div className="flex items-start justify-between mb-2">
-                        <Award className={`w-5 h-5 ${cert.url ? 'text-accent-500' : 'text-slate-400'}`} />
-                        {cert.url && <ExternalLink className="w-3 h-3 text-slate-400 group-hover:text-accent-500 transition-colors" />}
+                      {/* Glow effect on hover */}
+                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-accent-500/0 to-accent-500/0 group-hover:from-accent-500/5 group-hover:to-transparent transition-all duration-500" />
+
+                      {/* Badge Container */}
+                      <div className="relative mb-4">
+                        {cert.badge ? (
+                          <div className="relative">
+                            <div className="absolute inset-0 bg-gradient-to-br from-accent-400/20 to-blue-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-150" />
+                            <img
+                              src={cert.badge}
+                              alt={`${cert.name} badge`}
+                              className="relative w-16 h-16 object-contain drop-shadow-lg group-hover:scale-110 transition-transform duration-500"
+                            />
+                          </div>
+                        ) : (
+                          <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 flex items-center justify-center border border-slate-200 dark:border-slate-700 group-hover:border-accent-500/30 transition-colors">
+                            <span className="text-lg font-bold text-slate-400 dark:text-slate-500">
+                              {cert.name.includes('ITIL') ? 'ITIL' :
+                               cert.name.includes('Eagle') ? '⚜️' : '?'}
+                            </span>
+                          </div>
+                        )}
                       </div>
-                      <h4 className="font-bold text-slate-700 dark:text-slate-200 text-sm mb-1 group-hover:text-accent-500 transition-colors">
-                        {cert.name}
-                      </h4>
-                      <div className="flex justify-between items-center text-xs text-slate-500">
-                        <span>{cert.issuer}</span>
-                        <span className="font-mono bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded">
-                          {cert.year}
-                        </span>
+
+                      {/* Content */}
+                      <div className="relative z-10 flex flex-col items-center">
+                        <h4 className="font-bold text-slate-800 dark:text-slate-100 text-sm leading-tight group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">
+                          {cert.name.replace('CompTIA ', '').replace('LPI ', '')}
+                        </h4>
+                        <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                          {cert.issuer}
+                        </p>
+                        <div className="flex items-center gap-2 mt-2">
+                          <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400">
+                            {cert.year}
+                          </span>
+                          {cert.url && (
+                            <ExternalLink className="w-3 h-3 text-slate-400 group-hover:text-accent-500 transition-colors" />
+                          )}
+                        </div>
                       </div>
                     </Tag>
                   );

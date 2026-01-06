@@ -77,6 +77,7 @@ export const Experience: React.FC = () => {
             <a
               href="/resume.pdf"
               target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-slate-500 hover:text-accent-500 dark:hover:text-accent-400 transition-all duration-300 border-b border-transparent hover:border-accent-500 dark:hover:border-accent-400 pb-0.5 group"
             >
               <span className="font-mono text-sm font-medium">View Full Résumé</span>

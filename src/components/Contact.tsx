@@ -10,7 +10,7 @@ export const Contact: React.FC = () => {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         <Section>
-          <p className="text-accent-500 dark:text-accent-400 font-mono mb-4">06. What's Next?</p>
+          <p className="text-accent-500 dark:text-accent-400 font-mono mb-4">05. What's Next?</p>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-100 mb-6">Get In Touch</h2>
           <p className="text-slate-600 dark:text-slate-400 text-lg mb-12 max-w-2xl mx-auto">
             I'm always interested in hearing about new opportunities and challenges. Whether you have a question about fiber backhauls, React state management, or just want to say hi, feel free to reach out!
