@@ -59,7 +59,11 @@ export const EXPERIENCE: Job[] = [
     role: "Digital Assets Manager",
     company: "Diagnotes, Inc.",
     period: "Mar 2019 — Aug 2019",
-    description: "Managed WordPress site with HotJar analytics integration to track user behavior and improve UX. Created interview-driven marketing videos with motion graphics and designed infographics to simplify complex medical concepts. Analyzed Google Analytics data to inform design decisions and improve site navigation.",
+    description: [
+      "Integrated **HotJar analytics** into WordPress site, tracking user behavior patterns to identify UX friction points and inform design decisions.",
+      "Produced **interview-driven marketing videos** with motion graphics in Premiere Pro and After Effects, simplifying complex medical concepts for patient education.",
+      "Analyzed **Google Analytics data** to optimize site navigation, resulting in improved user engagement and reduced bounce rates."
+    ],
     skills: ["WordPress", "HotJar", "Google Analytics", "Premiere Pro", "After Effects", "UX Research"]
   },
   {
