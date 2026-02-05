@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
-import { ArrowUpRight, Check, Mail, MapPin } from 'lucide-react';
+import { ArrowUpRight, Check, Mail, MapPin, Sun, Moon } from 'lucide-react';
+import { useTheme } from '../../hooks/useTheme';
 import { BIO, EXPERIENCE, EDUCATION, CERTIFICATIONS, PROJECTS, TECH_CATEGORIES } from '../../data';
 
 /* ---------------------------------------------------------------------------
@@ -122,6 +123,7 @@ export const Design4: React.FC = () => {
   const [currentYear] = useState(() => new Date().getFullYear());
   const heroRef = useRef<HTMLElement>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const { theme, toggleTheme } = useTheme();
 
   // Mouse-following radial gradient on hero
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
@@ -135,11 +137,12 @@ export const Design4: React.FC = () => {
 
   // Set body bg + theme-color for iOS safe areas
   useEffect(() => {
-    document.body.style.background = '#0c0c0c';
+    const bgColor = theme === 'dark' ? '#0c0c0c' : '#f8fafc';
+    document.body.style.background = bgColor;
     const tc = document.querySelector('meta[name="theme-color"]');
-    if (tc) tc.setAttribute('content', '#0c0c0c');
+    if (tc) tc.setAttribute('content', bgColor);
     return () => { document.body.style.background = ''; };
-  }, []);
+  }, [theme]);
 
   // Subtle parallax scale on hero text via scroll
   const [scrollY, setScrollY] = useState(0);
@@ -171,8 +174,45 @@ export const Design4: React.FC = () => {
           --copper-dim: rgba(201, 149, 107, 0.15);
           --copper-glow: rgba(201, 149, 107, 0.08);
           --rose: #c47d7d;
+          --border-faint: rgba(201, 149, 107, 0.08);
+          --border-subtle: rgba(201, 149, 107, 0.1);
+          --border-light: rgba(201, 149, 107, 0.12);
+          --border-medium: rgba(201, 149, 107, 0.15);
+          --border-strong: rgba(201, 149, 107, 0.2);
+          --border-stronger: rgba(201, 149, 107, 0.3);
+          --hover-tint: rgba(201, 149, 107, 0.02);
+          --hover-tint-strong: rgba(201, 149, 107, 0.05);
+          --stroke-outline: rgba(232, 232, 232, 0.35);
           --font-heading: 'Space Grotesk', system-ui, -apple-system, sans-serif;
           --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        /* ── Light Mode Overrides ── */
+        html:not(.dark) .lux-root {
+          --bg: #f8fafc;
+          --bg-surface: #f1f5f9;
+          --bg-surface-hover: #e2e8f0;
+          --text-primary: #0f172a;
+          --text-secondary: #475569;
+          --text-muted: #94a3b8;
+          --copper: #92643a;
+          --copper-light: #a67544;
+          --copper-dim: rgba(146, 100, 58, 0.12);
+          --copper-glow: rgba(146, 100, 58, 0.06);
+          --rose: #9a5555;
+          --border-faint: rgba(146, 100, 58, 0.1);
+          --border-subtle: rgba(146, 100, 58, 0.15);
+          --border-light: rgba(146, 100, 58, 0.18);
+          --border-medium: rgba(146, 100, 58, 0.2);
+          --border-strong: rgba(146, 100, 58, 0.25);
+          --border-stronger: rgba(146, 100, 58, 0.35);
+          --hover-tint: rgba(146, 100, 58, 0.03);
+          --hover-tint-strong: rgba(146, 100, 58, 0.08);
+          --stroke-outline: rgba(15, 23, 42, 0.35);
+        }
+
+        html:not(.dark) .lux-grain {
+          opacity: 0.02;
         }
 
         /* ── Base Reset ── */
@@ -243,9 +283,9 @@ export const Design4: React.FC = () => {
           background: linear-gradient(
             90deg,
             transparent 0%,
-            rgba(201, 149, 107, 0.1) 10%,
+            var(--border-subtle) 10%,
             var(--copper) 50%,
-            rgba(201, 149, 107, 0.1) 90%,
+            var(--border-subtle) 90%,
             transparent 100%
           );
         }
@@ -301,8 +341,8 @@ export const Design4: React.FC = () => {
           pointer-events: none;
           background: radial-gradient(
             circle,
-            rgba(201, 149, 107, 0.06) 0%,
-            rgba(201, 149, 107, 0.02) 40%,
+            var(--copper-glow) 0%,
+            var(--hover-tint) 40%,
             transparent 70%
           );
           transform: translate(-50%, -50%);
@@ -362,7 +402,7 @@ export const Design4: React.FC = () => {
 
         .lux-hero-name span:last-child {
           color: transparent;
-          -webkit-text-stroke: 1px rgba(232, 232, 232, 0.35);
+          -webkit-text-stroke: 1px var(--stroke-outline);
         }
 
         .lux-hero-line {
@@ -643,13 +683,13 @@ export const Design4: React.FC = () => {
           grid-template-columns: 260px 1fr;
           gap: 60px;
           padding: 48px 0 48px 24px;
-          border-top: 1px solid rgba(201, 149, 107, 0.1);
+          border-top: 1px solid var(--border-subtle);
           position: relative;
           transition: background 0.4s ease;
         }
 
         .lux-exp-item:last-child {
-          border-bottom: 1px solid rgba(201, 149, 107, 0.1);
+          border-bottom: 1px solid var(--border-subtle);
         }
 
         /* Copper left border on hover */
@@ -671,7 +711,7 @@ export const Design4: React.FC = () => {
         }
 
         .lux-exp-item:hover {
-          background: rgba(201, 149, 107, 0.02);
+          background: var(--hover-tint);
         }
 
         @media (max-width: 768px) {
@@ -761,7 +801,7 @@ export const Design4: React.FC = () => {
           letter-spacing: 0.1em;
           text-transform: uppercase;
           padding: 5px 14px;
-          border: 1px solid rgba(201, 149, 107, 0.2);
+          border: 1px solid var(--border-strong);
           color: var(--text-muted);
           background: transparent;
           transition: all 0.3s ease;
@@ -771,7 +811,7 @@ export const Design4: React.FC = () => {
         .lux-exp-skill:hover {
           border-color: var(--copper);
           color: var(--copper);
-          background: rgba(201, 149, 107, 0.05);
+          background: var(--hover-tint-strong);
         }
 
         /* ═══════════════════════════════════════════
@@ -799,17 +839,17 @@ export const Design4: React.FC = () => {
           gap: 48px;
           align-items: start;
           padding: 48px 0;
-          border-top: 1px solid rgba(201, 149, 107, 0.1);
+          border-top: 1px solid var(--border-subtle);
           transition: background 0.4s ease;
           position: relative;
         }
 
         .lux-proj-item:last-child {
-          border-bottom: 1px solid rgba(201, 149, 107, 0.1);
+          border-bottom: 1px solid var(--border-subtle);
         }
 
         .lux-proj-item:hover {
-          background: rgba(201, 149, 107, 0.02);
+          background: var(--hover-tint);
         }
 
         @media (max-width: 768px) {
@@ -869,7 +909,7 @@ export const Design4: React.FC = () => {
         .lux-proj-divider-vert {
           width: 1px;
           align-self: stretch;
-          background: rgba(201, 149, 107, 0.2);
+          background: var(--border-strong);
         }
 
         @media (max-width: 768px) {
@@ -907,7 +947,7 @@ export const Design4: React.FC = () => {
           height: 8px;
           border: 1px solid var(--copper);
           border-radius: 50%;
-          background: rgba(201, 149, 107, 0.3);
+          background: var(--border-stronger);
         }
 
         /* ═══════════════════════════════════════════
@@ -953,7 +993,7 @@ export const Design4: React.FC = () => {
           content: '';
           flex: 1;
           height: 1px;
-          background: rgba(201, 149, 107, 0.15);
+          background: var(--border-medium);
         }
 
         .lux-edu-item {
@@ -1008,7 +1048,7 @@ export const Design4: React.FC = () => {
           text-transform: uppercase;
           color: var(--text-muted);
           padding: 4px 12px;
-          border: 1px solid rgba(201, 149, 107, 0.12);
+          border: 1px solid var(--border-light);
         }
 
         /* Certifications */
@@ -1023,17 +1063,17 @@ export const Design4: React.FC = () => {
           align-items: center;
           gap: 16px;
           padding: 20px 0;
-          border-bottom: 1px solid rgba(201, 149, 107, 0.08);
+          border-bottom: 1px solid var(--border-faint);
           transition: all 0.3s ease;
         }
 
         .lux-cert-item:first-child {
-          border-top: 1px solid rgba(201, 149, 107, 0.08);
+          border-top: 1px solid var(--border-faint);
         }
 
         .lux-cert-item:hover {
           padding-left: 12px;
-          background: rgba(201, 149, 107, 0.02);
+          background: var(--hover-tint);
         }
 
         .lux-cert-check {
@@ -1116,7 +1156,7 @@ export const Design4: React.FC = () => {
           content: '';
           flex: 1;
           height: 1px;
-          background: rgba(201, 149, 107, 0.12);
+          background: var(--border-light);
         }
 
         .lux-tech-grid {
@@ -1131,7 +1171,7 @@ export const Design4: React.FC = () => {
           font-weight: 400;
           letter-spacing: 0.04em;
           padding: 14px 28px;
-          border: 1px solid rgba(201, 149, 107, 0.1);
+          border: 1px solid var(--border-subtle);
           margin-right: -1px;
           margin-bottom: -1px;
           color: var(--text-secondary);
@@ -1299,13 +1339,53 @@ export const Design4: React.FC = () => {
         .lux-footer-line {
           width: 32px;
           height: 1px;
-          background: rgba(201, 149, 107, 0.3);
+          background: var(--border-stronger);
+        }
+
+        /* ═══════════════════════════════════════════
+           THEME TOGGLE
+           ═══════════════════════════════════════════ */
+        .lux-theme-toggle {
+          position: fixed;
+          top: 24px;
+          right: 24px;
+          z-index: 9999;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          border: 1px solid var(--border-strong);
+          background: var(--bg-surface);
+          color: var(--copper);
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.3s ease;
+        }
+
+        .lux-theme-toggle:hover {
+          border-color: var(--copper);
+          background: var(--copper-dim);
+        }
+
+        .lux-theme-toggle svg {
+          width: 18px;
+          height: 18px;
         }
       `}</style>
 
       <div className="lux-root">
         {/* Grain texture overlay */}
         <div className="lux-grain" />
+
+        {/* Theme Toggle */}
+        <button
+          className="lux-theme-toggle"
+          onClick={toggleTheme}
+          aria-label="Toggle theme"
+        >
+          {theme === 'dark' ? <Sun /> : <Moon />}
+        </button>
 
         {/* ================================================================
             HERO
