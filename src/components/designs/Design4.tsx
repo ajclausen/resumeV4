@@ -133,6 +133,14 @@ export const Design4: React.FC = () => {
     });
   }, []);
 
+  // Set body bg + theme-color for iOS safe areas
+  useEffect(() => {
+    document.body.style.background = '#0c0c0c';
+    const tc = document.querySelector('meta[name="theme-color"]');
+    if (tc) tc.setAttribute('content', '#0c0c0c');
+    return () => { document.body.style.background = ''; };
+  }, []);
+
   // Subtle parallax scale on hero text via scroll
   const [scrollY, setScrollY] = useState(0);
   useEffect(() => {
@@ -305,13 +313,13 @@ export const Design4: React.FC = () => {
         .lux-hero-content {
           position: relative;
           z-index: 1;
-          padding: 160px 48px 120px;
+          padding: 120px 48px 120px;
           max-width: 100%;
         }
 
         @media (max-width: 768px) {
           .lux-hero-content {
-            padding: 120px 24px 80px;
+            padding: 88px 24px 80px;
           }
         }
 
@@ -452,7 +460,7 @@ export const Design4: React.FC = () => {
         .lux-hero-scroll {
           position: absolute;
           bottom: 48px;
-          left: 48px;
+          right: 48px;
           font-family: var(--font-heading);
           font-size: 11px;
           letter-spacing: 0.3em;
@@ -949,10 +957,6 @@ export const Design4: React.FC = () => {
         }
 
         .lux-edu-item {
-          margin-bottom: 40px;
-        }
-
-        .lux-edu-item:last-child {
           margin-bottom: 0;
         }
 
@@ -993,6 +997,8 @@ export const Design4: React.FC = () => {
           display: flex;
           flex-wrap: wrap;
           gap: 8px;
+          margin-top: 8px;
+          margin-bottom: 48px;
         }
 
         .lux-edu-course {
@@ -1066,6 +1072,12 @@ export const Design4: React.FC = () => {
         .lux-cert-link svg {
           width: 14px;
           height: 14px;
+        }
+
+        .lux-cert-issuer-short { display: none; }
+        @media (max-width: 640px) {
+          .lux-cert-issuer-full { display: none; }
+          .lux-cert-issuer-short { display: inline; }
         }
 
         /* ═══════════════════════════════════════════
@@ -1515,7 +1527,11 @@ export const Design4: React.FC = () => {
                       <div key={cert.id} className="lux-cert-item">
                         <Check className="lux-cert-check" strokeWidth={2.5} />
                         <span className="lux-cert-name">{cert.name}</span>
-                        <span className="lux-cert-meta">{cert.issuer} &middot; {cert.year}</span>
+                        <span className="lux-cert-meta">
+                          <span className="lux-cert-issuer-full">{cert.issuer}</span>
+                          <span className="lux-cert-issuer-short">{cert.issuer === 'Linux Professional Institute' ? 'LPI' : cert.issuer}</span>
+                          {' '}&middot; {cert.year}
+                        </span>
                         {cert.url && (
                           <a
                             href={cert.url}

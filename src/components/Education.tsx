@@ -129,7 +129,8 @@ export const Education: React.FC = () => {
                           {cert.name.replace('CompTIA ', '').replace('LPI ', '')}
                         </h4>
                         <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                          {cert.issuer}
+                          <span className="hidden sm:inline">{cert.issuer}</span>
+                          <span className="sm:hidden">{cert.issuer === 'Linux Professional Institute' ? 'LPI' : cert.issuer}</span>
                         </p>
                         <div className="flex items-center gap-2 mt-2">
                           <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400">
