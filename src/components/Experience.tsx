@@ -10,11 +10,13 @@ export const Experience: React.FC = () => {
         <Section>
           <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-12 flex items-center gap-3">
             <span className="text-accent-500 dark:text-accent-400">02.</span> Experience
-            <span className="h-px bg-slate-200 dark:bg-slate-800 flex-grow ml-4"></span>
+            <span className="h-px bg-gradient-to-r from-slate-300 dark:from-slate-700 to-transparent flex-grow ml-4"></span>
           </h2>
         </Section>
 
-        <div className="relative border-l border-slate-200 dark:border-slate-800 ml-3 md:ml-6 space-y-12">
+        <div className="relative ml-3 md:ml-6 space-y-12">
+          {/* Gradient timeline line */}
+          <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-accent-500/50 via-slate-300 dark:via-slate-700 to-transparent" />
           {EXPERIENCE.map((job, index) => (
             <div key={job.id} className="relative pl-8 md:pl-12 group">
               {/* Fluid Background Layer - Transitions opacity instead of background-color for smoothness */}

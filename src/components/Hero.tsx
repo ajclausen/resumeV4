@@ -130,9 +130,10 @@ const TypewriterTerminal = () => {
 export const Hero: React.FC = () => {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-      {/* Background Decoration */}
-      <div className="absolute top-[-20%] right-[-10%] w-[500px] h-[500px] bg-accent-400/10 rounded-full blur-[120px] pointer-events-none mix-blend-multiply dark:mix-blend-screen" />
-      <div className="absolute bottom-[-20%] left-[-10%] w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none mix-blend-multiply dark:mix-blend-screen" />
+      {/* Background Decoration - Animated */}
+      <div className="absolute top-[-20%] right-[-10%] w-[500px] h-[500px] bg-accent-400/10 rounded-full blur-[120px] pointer-events-none mix-blend-multiply dark:mix-blend-screen animate-blob" />
+      <div className="absolute bottom-[-20%] left-[-10%] w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none mix-blend-multiply dark:mix-blend-screen animate-blob-reverse" />
+      <div className="absolute top-[20%] left-[30%] w-[300px] h-[300px] bg-cyan-500/5 rounded-full blur-[100px] pointer-events-none mix-blend-multiply dark:mix-blend-screen animate-blob" style={{ animationDelay: '5s' }} />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid md:grid-cols-5 gap-12 items-center">
         <div className="md:col-span-3 flex flex-col gap-6">
@@ -146,7 +147,7 @@ export const Hero: React.FC = () => {
             </div>
             <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight leading-[1.1]">
               Building the <br />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-slate-700 to-slate-900 dark:from-slate-100 dark:to-slate-500">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent-400 via-cyan-400 to-blue-500 dark:from-accent-300 dark:via-cyan-400 dark:to-blue-400 gradient-text-animate">
                 Digital Infrastructure
               </span>
             </h1>
@@ -160,7 +161,7 @@ export const Hero: React.FC = () => {
 
           <Section delay={500}>
             <div className="flex flex-wrap gap-4 pt-4">
-              <a href="#contact" className="px-6 py-3 bg-accent-500 hover:bg-accent-400 text-white dark:text-slate-950 font-semibold rounded-lg transition-all hover:scale-105 shadow-[0_0_20px_-5px_rgba(20,184,166,0.4)]">
+              <a href="#contact" className="px-6 py-3 bg-gradient-to-r from-accent-500 to-cyan-500 hover:from-accent-400 hover:to-cyan-400 text-white dark:text-slate-950 font-semibold rounded-lg transition-all hover:scale-105 shadow-[0_0_25px_-5px_rgba(20,184,166,0.5)] hover:shadow-[0_0_35px_-5px_rgba(20,184,166,0.6)]">
                 Get in Touch
               </a>
               <a href="https://github.com/ajclausen" target="_blank" rel="noreferrer" aria-label="GitHub Profile" className="p-3 rounded-lg bg-white dark:bg-slate-800/50 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors border border-slate-200 dark:border-slate-700/50 shadow-sm dark:shadow-none">
