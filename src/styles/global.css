@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Subtle dot grid pattern for section backgrounds */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(45, 212, 191, 0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+:not(.dark) .dot-grid {
+  background-image: radial-gradient(circle, rgba(20, 184, 166, 0.06) 1px, transparent 1px);
+}
+
+/* Animated gradient text helper */
+.gradient-text-animate {
+  background-size: 200% 200%;
+  animation: gradient-shift 6s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Gradient border card utility */
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(45, 212, 191, 0), rgba(45, 212, 191, 0));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  transition: background 0.5s ease;
+  pointer-events: none;
+}
+.gradient-border:hover::before {
+  background: linear-gradient(135deg, rgba(45, 212, 191, 0.5), rgba(56, 189, 248, 0.5), rgba(45, 212, 191, 0.5));
+}
+
+/* Custom scrollbar for a polished look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+:not(.dark) ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+:not(.dark) ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+:not(.dark) ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Print Optimization */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .print\:hidden, header, .fixed, button, .bg-slate-900, .dark\:bg-slate-900 {
+    display: none !important;
+  }
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+  section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+  /* Hide decorative blobs and gradients */
+  div[class*="blur-"], div[class*="bg-gradient"] {
+    display: none !important;
+  }
+  /* Reset text colors for print */
+  p, h1, h2, h3, h4, h5, h6, span, li {
+    color: #000 !important;
+  }
+}

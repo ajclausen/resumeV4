@@ -1,4 +1,4 @@
-import { ComponentType } from 'react';
+import type { ComponentType } from 'react';
 
 export interface Skill {
   name: string;
@@ -9,7 +9,7 @@ export interface Job {
   role: string;
   company: string;
   period: string;
-  description: string;
+  description: string | string[];
   skills: string[];
 }
 
@@ -28,6 +28,7 @@ export interface Certification {
   issuer: string;
   year: string;
   url?: string;
+  badge?: string;
 }
 
 export interface Project {
@@ -45,4 +46,16 @@ export interface SocialLink {
   url: string;
   icon: ComponentType<{ className?: string }>;
   label: string;
+}
+
+export interface TechItem {
+  name: string;
+  icon: ComponentType<{ className?: string }>;
+  color: string;
+}
+
+export interface TechCategory {
+  title: string;
+  items: TechItem[];
+  gradient: string;
 }

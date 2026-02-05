@@ -10,11 +10,13 @@ export const Experience: React.FC = () => {
         <Section>
           <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-12 flex items-center gap-3">
             <span className="text-accent-500 dark:text-accent-400">02.</span> Experience
-            <span className="h-px bg-slate-200 dark:bg-slate-800 flex-grow ml-4"></span>
+            <span className="h-px bg-gradient-to-r from-slate-300 dark:from-slate-700 to-transparent flex-grow ml-4"></span>
           </h2>
         </Section>
 
-        <div className="relative border-l border-slate-200 dark:border-slate-800 ml-3 md:ml-6 space-y-12">
+        <div className="relative ml-3 md:ml-6 space-y-12">
+          {/* Gradient timeline line */}
+          <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-accent-500/50 via-slate-300 dark:via-slate-700 to-transparent" />
           {EXPERIENCE.map((job, index) => (
             <div key={job.id} className="relative pl-8 md:pl-12 group">
               {/* Fluid Background Layer - Transitions opacity instead of background-color for smoothness */}
@@ -36,9 +38,27 @@ export const Experience: React.FC = () => {
                     </span>
                   </div>
 
-                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6 max-w-3xl group-hover:text-slate-700 dark:group-hover:text-slate-300 transition-colors duration-300">
-                    {job.description}
-                  </p>
+                  <div className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6 max-w-3xl group-hover:text-slate-700 dark:group-hover:text-slate-300 transition-colors duration-300">
+                    {Array.isArray(job.description) ? (
+                      <ul className="space-y-2 list-disc pl-4">
+                        {job.description.map((item, i) => (
+                          <li key={i}>
+                            {item.split(/(\*\*.*?\*\*)/).map((part, index) =>
+                              part.startsWith('**') && part.endsWith('**') ? (
+                                <strong key={index} className="font-semibold text-slate-800 dark:text-slate-200">
+                                  {part.slice(2, -2)}
+                                </strong>
+                              ) : (
+                                part
+                              )
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p>{job.description}</p>
+                    )}
+                  </div>
 
                   <div className="flex flex-wrap gap-2">
                     {job.skills.map((skill) => (
@@ -59,6 +79,7 @@ export const Experience: React.FC = () => {
             <a
               href="/resume.pdf"
               target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-slate-500 hover:text-accent-500 dark:hover:text-accent-400 transition-all duration-300 border-b border-transparent hover:border-accent-500 dark:hover:border-accent-400 pb-0.5 group"
             >
               <span className="font-mono text-sm font-medium">View Full Résumé</span>

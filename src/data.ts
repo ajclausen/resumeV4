@@ -1,4 +1,5 @@
-import { Job, Education, Certification, Project } from './types';
+import type { Job, Education, Certification, Project, TechCategory } from './types';
+import { Server, Globe, Code, Database, Cpu, Shield, Wifi, Layers, Terminal, Cloud, Radio, Activity, Video, Lock } from 'lucide-react';
 
 export const BIO = {
   name: "Andrew Clausen",
@@ -8,7 +9,7 @@ export const BIO = {
     "I'm a self-taught System Engineer who transformed from zero technical knowledge into the sole network architect for 50+ smart parking facilities nationwide. My unconventional path through Apprentice University's hands-on program taught me that the best solutions come from understanding both the technical details and business impact.",
     "At ECO Parking Technologies, I've built the infrastructure that powers some of the nation's largest parking deployments, including a 693-sensor Las Vegas casino requiring custom 10G fiber solutions. When our legacy system threatened to limit our growth, I led the migration to a modern Cloudflare-based architecture, eliminating vendor lock-in and saving thousands monthly.",
     "Beyond infrastructure, I'm a builder at heart. I've created production applications that our teams use daily—from a React-based cost calculator that speeds up sales quotes to a full-stack project tracker that integrates with legacy systems.",
-    "Currently pursuing my BSNES degree to formalize my practical experience, I'm excited about the intersection of IoT, cloud infrastructure, and smart city technology."
+    "Currently pursuing my BSCNE degree to formalize my practical experience, I'm excited about the intersection of IoT, cloud infrastructure, and smart city technology."
   ],
   email: "andrew@clausen.app",
   location: "Remote / Indianapolis, IN"
@@ -20,7 +21,13 @@ export const EXPERIENCE: Job[] = [
     role: "System Engineer",
     company: "ECO Parking Technologies",
     period: "Feb 2020 — Present",
-    description: "Architect and maintain network infrastructure for 50+ smart parking facilities nationwide, including a 693-sensor Las Vegas casino with custom 10G fiber backhaul. Led company-wide migration from legacy APN to Cloudflare architecture, eliminating vendor lock-in and saving thousands monthly. Built three production applications that streamline operations: React-based cost calculator, full-stack project tracker with Ruby/Fishbowl integration, and network management tools.",
+    description: [
+      "Architected **enterprise network overhaul** implementing Ubiquiti UniFi with 802.1Q VLANs across 50+ facilities nationwide, improving security posture and enabling granular traffic control for 10,000+ IoT sensors.",
+      "Led **Cloudflare Zero Trust migration** replacing legacy Verizon APN, reducing costs by $36K annually while enabling secure remote access and eliminating single point of failure.",
+      "Designed custom **10G fiber backhaul** for 693-sensor Las Vegas casino deployment, achieving **99.9% uptime SLA** in high-traffic environment with 50ms latency requirement.",
+      "Built production applications streamlining operations: **React cost calculator** (reduced quotes from 30 to 5 minutes), **Ruby microservice** for ERP integration (saved 24 hours/week), and custom monitoring dashboard.",
+      "Implemented **infrastructure as code** practices using Docker and automated deployment pipelines, reducing deployment time by 75% and eliminating configuration drift."
+    ],
     skills: ["React", "TypeScript", "Node.js", "Ruby", "PostgreSQL", "Docker", "Cloudflare Tunnels", "Ubiquiti UniFi", "10G Fiber", "Linux"]
   },
   {
@@ -28,7 +35,11 @@ export const EXPERIENCE: Job[] = [
     role: "President",
     company: "NexusOpus",
     period: "Oct 2017 — Mar 2020",
-    description: "School-initiated learning opportunity that evolved into managing Apprentice University's web presence. Successfully recovered website after security breach through manual file-by-file inspection. Negotiated tuition reduction in exchange for web management services. Gained hands-on experience with WordPress security, site migrations, and infrastructure management.",
+    description: [
+      "Recovered compromised **WordPress infrastructure** through manual security audit and reimplementation.",
+      "Managed **DNS, SSL certificates, and web hosting** for educational institution serving 40+ students.",
+      "Implemented automated **backup system and security hardening protocols**, preventing future breaches."
+    ],
     skills: ["WordPress", "Security Recovery", "DNS Management", "FTP", "Database Admin", "Adobe Suite"]
   },
   {
@@ -36,7 +47,11 @@ export const EXPERIENCE: Job[] = [
     role: "Junior Systems Engineer",
     company: "Flexware Innovation",
     period: "Sep 2019 — Jan 2020",
-    description: "Started with zero Linux/networking experience and became primary technical resource within months. Built and deployed gateway hardware for smart parking systems, configured mesh networks, and annotated thousands of images for ML training. Impressed leadership leading to direct hire by client company (ECO) as their first full-time technical employee.",
+    description: [
+      "Advanced from zero Linux/networking experience to **primary technical resource in 3 months**, deploying 20+ IoT gateway systems.",
+      "Configured **Ubuntu-based gateways** with custom networking stack, managing DHCP, DNS, and mesh network topology for 50-100 sensors per site.",
+      "Demonstrated exceptional technical growth, earning **direct-hire offer** as client's first full-time infrastructure engineer."
+    ],
     skills: ["Ubuntu Server", "Linux CLI", "Ubiquiti", "DHCP", "IoT Sensors", "Machine Learning", "Network Architecture"]
   },
   {
@@ -44,7 +59,11 @@ export const EXPERIENCE: Job[] = [
     role: "Digital Assets Manager",
     company: "Diagnotes, Inc.",
     period: "Mar 2019 — Aug 2019",
-    description: "Managed WordPress site with HotJar analytics integration to track user behavior and improve UX. Created interview-driven marketing videos with motion graphics and designed infographics to simplify complex medical concepts. Analyzed Google Analytics data to inform design decisions and improve site navigation.",
+    description: [
+      "Integrated **HotJar analytics** into WordPress site, tracking user behavior patterns to identify UX friction points and inform design decisions.",
+      "Produced **interview-driven marketing videos** with motion graphics in Premiere Pro and After Effects, simplifying complex medical concepts for patient education.",
+      "Analyzed **Google Analytics data** to optimize site navigation, resulting in improved user engagement and reduced bounce rates."
+    ],
     skills: ["WordPress", "HotJar", "Google Analytics", "Premiere Pro", "After Effects", "UX Research"]
   },
   {
@@ -84,11 +103,11 @@ export const EXPERIENCE: Job[] = [
 export const EDUCATION: Education[] = [
   {
     id: "wgu",
-    degree: "B.S. Network Engineering and Security",
+    degree: "B.S. Cloud and Network Engineering",
     institution: "Western Governors University",
     period: "In Progress",
-    description: "Formalizing my practical experience with comprehensive studies in network architecture, security protocols, and system administration.",
-    courses: ["Network Security", "Cloud Infrastructure", "System Architecture", "Database Management", "Cybersecurity Fundamentals"]
+    description: "Formalizing my practical experience with comprehensive studies in cloud architecture, network design, and system administration.",
+    courses: ["Cloud Architecture", "Network Infrastructure", "System Administration", "Database Management", "Cybersecurity Fundamentals"]
   },
   {
     id: "apprentice",
@@ -101,31 +120,43 @@ export const EDUCATION: Education[] = [
 
 export const CERTIFICATIONS: Certification[] = [
   {
+    id: "security-plus",
+    name: "CompTIA Security+",
+    issuer: "CompTIA",
+    year: "2025",
+    url: "https://www.credly.com/badges/7f17d88b-5764-409b-8a1f-17f83e8fa196/public_url",
+    badge: "/comptia-security-ce-certification.png"
+  },
+  {
     id: "network-plus",
     name: "CompTIA Network+",
     issuer: "CompTIA",
     year: "2025",
-    url: "https://www.credly.com/badges/37447265-29b4-42bb-9146-27117c2a0a29/public_url"
-  },
-  {
-    id: "linux-essentials",
-    name: "LPI Linux Essentials",
-    issuer: "Linux Professional Institute",
-    year: "2025",
-    url: "https://www.credly.com/badges/d7d368b1-b110-4ec9-930c-a401e903b945/public_url"
-  },
-  {
-    id: "itil-v4",
-    name: "ITIL v4 Foundations",
-    issuer: "AXELOS",
-    year: "2025"
+    url: "https://www.credly.com/badges/37447265-29b4-42bb-9146-27117c2a0a29/public_url",
+    badge: "/comptia-network-ce-certification.1.png"
   },
   {
     id: "comptia-a-plus",
     name: "CompTIA A+",
     issuer: "CompTIA",
     year: "2025",
-    url: "https://www.credly.com/badges/67e453c5-07cc-45cf-9805-c747c5b87cd1/public_url"
+    url: "https://www.credly.com/badges/67e453c5-07cc-45cf-9805-c747c5b87cd1/public_url",
+    badge: "/comptia-a-ce-certification.1.png"
+  },
+  {
+    id: "linux-essentials",
+    name: "LPI Linux Essentials",
+    issuer: "Linux Professional Institute",
+    year: "2025",
+    url: "https://www.credly.com/badges/d7d368b1-b110-4ec9-930c-a401e903b945/public_url",
+    badge: "/linux-essentials-certificate.png"
+  },
+  {
+    id: "itil-v4",
+    name: "ITIL v4 Foundations",
+    issuer: "AXELOS",
+    year: "2025",
+    badge: "/ITIL-4-Certification.webp"
   },
   {
     id: "eagle-scout",
@@ -156,5 +187,44 @@ export const PROJECTS: Project[] = [
     description: "Internal CLI and dashboard tools for managing configuration consistency across 50+ distributed sites. Automates updates for firewall rules and VLAN configurations via SSH and API hooks.",
     techStack: ["Python", "Bash", "Linux", "Ansible"],
     featured: false
+  }
+];
+
+export const TECH_CATEGORIES: TechCategory[] = [
+  {
+    title: "Infrastructure & Network",
+    gradient: "from-cyan-500 to-blue-600",
+    items: [
+      { name: "Ubiquiti UniFi", icon: Wifi, color: "text-blue-400" },
+      { name: "Ubuntu Core/Snaps", icon: Terminal, color: "text-orange-500" },
+      { name: "Cloudflare Zero Trust", icon: Shield, color: "text-orange-400" },
+      { name: "VLAN Design", icon: Layers, color: "text-cyan-400" },
+      { name: "Azure Cloud", icon: Cloud, color: "text-blue-500" },
+      { name: "Docker & LXC", icon: Server, color: "text-blue-400" }
+    ]
+  },
+  {
+    title: "Development",
+    gradient: "from-violet-500 to-purple-600",
+    items: [
+      { name: "React/TypeScript", icon: Code, color: "text-cyan-400" },
+      { name: "Python", icon: Terminal, color: "text-yellow-300" },
+      { name: "Node.js", icon: Server, color: "text-green-500" },
+      { name: "PostgreSQL", icon: Database, color: "text-blue-400" },
+      { name: "GraphQL", icon: Globe, color: "text-pink-500" },
+      { name: "Next.js", icon: Globe, color: "text-white" }
+    ]
+  },
+  {
+    title: "Specialized Engineering",
+    gradient: "from-pink-500 to-rose-600",
+    items: [
+      { name: "WebRTC", icon: Video, color: "text-red-400" },
+      { name: "RTSP Streaming", icon: Radio, color: "text-orange-400" },
+      { name: "GStreamer", icon: Activity, color: "text-yellow-400" },
+      { name: "Protocol Reverse Eng.", icon: Lock, color: "text-emerald-400" },
+      { name: "Packet Analysis", icon: Activity, color: "text-blue-400" },
+      { name: "IoT Sensors", icon: Cpu, color: "text-green-400" }
+    ]
   }
 ];

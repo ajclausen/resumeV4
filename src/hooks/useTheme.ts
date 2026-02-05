@@ -1,14 +1,20 @@
 import { useState, useEffect } from 'react';
 
 export function useTheme() {
-  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+
+  useEffect(() => {
     if (typeof window !== 'undefined') {
       const stored = localStorage.getItem('theme');
-      if (stored === 'light' || stored === 'dark') return stored;
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      if (stored === 'light' || stored === 'dark') {
+        setTheme(stored);
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setTheme('dark');
+      } else {
+        setTheme('light');
+      }
     }
-    return 'dark';
-  });
+  }, []);
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -18,7 +24,7 @@ export function useTheme() {
       root.classList.remove('dark');
     }
     localStorage.setItem('theme', theme);
-    
+
     // Dispatch event so other components (like CommandPalette) can sync up
     window.dispatchEvent(new CustomEvent('theme-change', { detail: theme }));
   }, [theme]);
