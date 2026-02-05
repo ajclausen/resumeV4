@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Design4 } from '../components/designs/Design4';
+import { DesignSwitcher } from '../components/DesignSwitcher';
+---
+
+<Layout title="Andrew Clausen | System Engineer & Network Architect">
+	<Design4 client:load />
+	<DesignSwitcher client:idle current="agency" />
+</Layout>

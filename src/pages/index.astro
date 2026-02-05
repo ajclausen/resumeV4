@@ -8,6 +8,7 @@ import { Projects } from '../components/Projects';
 import { Education } from '../components/Education';
 import { Contact } from '../components/Contact';
 import { CommandPalette } from '../components/CommandPalette';
+import { DesignSwitcher } from '../components/DesignSwitcher';
 ---
 
 <Layout title="Andrew Clausen | System Engineer & Network Architect">
@@ -23,4 +24,5 @@ import { CommandPalette } from '../components/CommandPalette';
 			<Contact client:visible />
 		</main>
 	</div>
+	<DesignSwitcher client:idle current="original" />
 </Layout>
