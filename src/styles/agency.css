@@ -50,6 +50,179 @@ html:not(.dark) .lux-root {
   --stroke-outline: rgba(15, 23, 42, 0.35);
 }
 
+/* ═══════════════════════════════════════════
+   COLOR SCHEMES — dark mode
+   ═══════════════════════════════════════════ */
+
+/* Teal */
+.lux-root[data-accent="teal"] {
+  --copper: #2dd4bf;
+  --copper-light: #5eead4;
+  --copper-muted: rgba(45, 212, 191, 0.45);
+  --copper-dim: rgba(45, 212, 191, 0.15);
+  --copper-glow: rgba(45, 212, 191, 0.08);
+  --border-faint: rgba(45, 212, 191, 0.08);
+  --border-subtle: rgba(45, 212, 191, 0.1);
+  --border-light: rgba(45, 212, 191, 0.12);
+  --border-medium: rgba(45, 212, 191, 0.15);
+  --border-strong: rgba(45, 212, 191, 0.2);
+  --border-stronger: rgba(45, 212, 191, 0.3);
+  --hover-tint: rgba(45, 212, 191, 0.02);
+  --hover-tint-strong: rgba(45, 212, 191, 0.05);
+}
+
+/* Purple */
+.lux-root[data-accent="purple"] {
+  --copper: #a78bfa;
+  --copper-light: #c4b5fd;
+  --copper-muted: rgba(167, 139, 250, 0.45);
+  --copper-dim: rgba(167, 139, 250, 0.15);
+  --copper-glow: rgba(167, 139, 250, 0.08);
+  --border-faint: rgba(167, 139, 250, 0.08);
+  --border-subtle: rgba(167, 139, 250, 0.1);
+  --border-light: rgba(167, 139, 250, 0.12);
+  --border-medium: rgba(167, 139, 250, 0.15);
+  --border-strong: rgba(167, 139, 250, 0.2);
+  --border-stronger: rgba(167, 139, 250, 0.3);
+  --hover-tint: rgba(167, 139, 250, 0.02);
+  --hover-tint-strong: rgba(167, 139, 250, 0.05);
+}
+
+/* Green */
+.lux-root[data-accent="green"] {
+  --copper: #4ade80;
+  --copper-light: #86efac;
+  --copper-muted: rgba(74, 222, 128, 0.45);
+  --copper-dim: rgba(74, 222, 128, 0.15);
+  --copper-glow: rgba(74, 222, 128, 0.08);
+  --border-faint: rgba(74, 222, 128, 0.08);
+  --border-subtle: rgba(74, 222, 128, 0.1);
+  --border-light: rgba(74, 222, 128, 0.12);
+  --border-medium: rgba(74, 222, 128, 0.15);
+  --border-strong: rgba(74, 222, 128, 0.2);
+  --border-stronger: rgba(74, 222, 128, 0.3);
+  --hover-tint: rgba(74, 222, 128, 0.02);
+  --hover-tint-strong: rgba(74, 222, 128, 0.05);
+}
+
+/* Rose */
+.lux-root[data-accent="rose"] {
+  --copper: #fb7185;
+  --copper-light: #fda4af;
+  --copper-muted: rgba(251, 113, 133, 0.45);
+  --copper-dim: rgba(251, 113, 133, 0.15);
+  --copper-glow: rgba(251, 113, 133, 0.08);
+  --border-faint: rgba(251, 113, 133, 0.08);
+  --border-subtle: rgba(251, 113, 133, 0.1);
+  --border-light: rgba(251, 113, 133, 0.12);
+  --border-medium: rgba(251, 113, 133, 0.15);
+  --border-strong: rgba(251, 113, 133, 0.2);
+  --border-stronger: rgba(251, 113, 133, 0.3);
+  --hover-tint: rgba(251, 113, 133, 0.02);
+  --hover-tint-strong: rgba(251, 113, 133, 0.05);
+}
+
+/* Blue */
+.lux-root[data-accent="blue"] {
+  --copper: #60a5fa;
+  --copper-light: #93c5fd;
+  --copper-muted: rgba(96, 165, 250, 0.45);
+  --copper-dim: rgba(96, 165, 250, 0.15);
+  --copper-glow: rgba(96, 165, 250, 0.08);
+  --border-faint: rgba(96, 165, 250, 0.08);
+  --border-subtle: rgba(96, 165, 250, 0.1);
+  --border-light: rgba(96, 165, 250, 0.12);
+  --border-medium: rgba(96, 165, 250, 0.15);
+  --border-strong: rgba(96, 165, 250, 0.2);
+  --border-stronger: rgba(96, 165, 250, 0.3);
+  --hover-tint: rgba(96, 165, 250, 0.02);
+  --hover-tint-strong: rgba(96, 165, 250, 0.05);
+}
+
+/* ═══════════════════════════════════════════
+   COLOR SCHEMES — light mode
+   ═══════════════════════════════════════════ */
+
+html:not(.dark) .lux-root[data-accent="teal"] {
+  --copper: #0d9488;
+  --copper-light: #14b8a6;
+  --copper-muted: rgba(13, 148, 136, 0.4);
+  --copper-dim: rgba(13, 148, 136, 0.12);
+  --copper-glow: rgba(13, 148, 136, 0.06);
+  --border-faint: rgba(13, 148, 136, 0.1);
+  --border-subtle: rgba(13, 148, 136, 0.15);
+  --border-light: rgba(13, 148, 136, 0.18);
+  --border-medium: rgba(13, 148, 136, 0.2);
+  --border-strong: rgba(13, 148, 136, 0.25);
+  --border-stronger: rgba(13, 148, 136, 0.35);
+  --hover-tint: rgba(13, 148, 136, 0.03);
+  --hover-tint-strong: rgba(13, 148, 136, 0.08);
+}
+
+html:not(.dark) .lux-root[data-accent="purple"] {
+  --copper: #7c3aed;
+  --copper-light: #8b5cf6;
+  --copper-muted: rgba(124, 58, 237, 0.4);
+  --copper-dim: rgba(124, 58, 237, 0.12);
+  --copper-glow: rgba(124, 58, 237, 0.06);
+  --border-faint: rgba(124, 58, 237, 0.1);
+  --border-subtle: rgba(124, 58, 237, 0.15);
+  --border-light: rgba(124, 58, 237, 0.18);
+  --border-medium: rgba(124, 58, 237, 0.2);
+  --border-strong: rgba(124, 58, 237, 0.25);
+  --border-stronger: rgba(124, 58, 237, 0.35);
+  --hover-tint: rgba(124, 58, 237, 0.03);
+  --hover-tint-strong: rgba(124, 58, 237, 0.08);
+}
+
+html:not(.dark) .lux-root[data-accent="green"] {
+  --copper: #16a34a;
+  --copper-light: #22c55e;
+  --copper-muted: rgba(22, 163, 74, 0.4);
+  --copper-dim: rgba(22, 163, 74, 0.12);
+  --copper-glow: rgba(22, 163, 74, 0.06);
+  --border-faint: rgba(22, 163, 74, 0.1);
+  --border-subtle: rgba(22, 163, 74, 0.15);
+  --border-light: rgba(22, 163, 74, 0.18);
+  --border-medium: rgba(22, 163, 74, 0.2);
+  --border-strong: rgba(22, 163, 74, 0.25);
+  --border-stronger: rgba(22, 163, 74, 0.35);
+  --hover-tint: rgba(22, 163, 74, 0.03);
+  --hover-tint-strong: rgba(22, 163, 74, 0.08);
+}
+
+html:not(.dark) .lux-root[data-accent="rose"] {
+  --copper: #e11d48;
+  --copper-light: #f43f5e;
+  --copper-muted: rgba(225, 29, 72, 0.4);
+  --copper-dim: rgba(225, 29, 72, 0.12);
+  --copper-glow: rgba(225, 29, 72, 0.06);
+  --border-faint: rgba(225, 29, 72, 0.1);
+  --border-subtle: rgba(225, 29, 72, 0.15);
+  --border-light: rgba(225, 29, 72, 0.18);
+  --border-medium: rgba(225, 29, 72, 0.2);
+  --border-strong: rgba(225, 29, 72, 0.25);
+  --border-stronger: rgba(225, 29, 72, 0.35);
+  --hover-tint: rgba(225, 29, 72, 0.03);
+  --hover-tint-strong: rgba(225, 29, 72, 0.08);
+}
+
+html:not(.dark) .lux-root[data-accent="blue"] {
+  --copper: #2563eb;
+  --copper-light: #3b82f6;
+  --copper-muted: rgba(37, 99, 235, 0.4);
+  --copper-dim: rgba(37, 99, 235, 0.12);
+  --copper-glow: rgba(37, 99, 235, 0.06);
+  --border-faint: rgba(37, 99, 235, 0.1);
+  --border-subtle: rgba(37, 99, 235, 0.15);
+  --border-light: rgba(37, 99, 235, 0.18);
+  --border-medium: rgba(37, 99, 235, 0.2);
+  --border-strong: rgba(37, 99, 235, 0.25);
+  --border-stronger: rgba(37, 99, 235, 0.35);
+  --hover-tint: rgba(37, 99, 235, 0.03);
+  --hover-tint-strong: rgba(37, 99, 235, 0.08);
+}
+
 html:not(.dark) .lux-grain {
   opacity: 0.02;
 }

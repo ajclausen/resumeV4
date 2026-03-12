@@ -1,0 +1,160 @@
+---
+const schemes = [
+  { id: 'copper', label: 'Copper', dark: '#c9956b', light: '#92643a' },
+  { id: 'teal', label: 'Teal', dark: '#2dd4bf', light: '#0d9488' },
+  { id: 'purple', label: 'Purple', dark: '#a78bfa', light: '#7c3aed' },
+  { id: 'green', label: 'Green', dark: '#4ade80', light: '#16a34a' },
+  { id: 'rose', label: 'Rose', dark: '#fb7185', light: '#e11d48' },
+  { id: 'blue', label: 'Blue', dark: '#60a5fa', light: '#2563eb' },
+];
+---
+
+<color-switcher>
+  <button class="color-switcher-toggle" aria-label="Change color scheme">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M12 2a10 10 0 0 1 0 20"/>
+    </svg>
+  </button>
+  <div class="color-switcher-panel" aria-hidden="true">
+    <span class="color-switcher-label">Accent</span>
+    <div class="color-switcher-swatches">
+      {schemes.map((s) => (
+        <button
+          class="color-swatch"
+          data-scheme={s.id}
+          aria-label={s.label}
+          title={s.label}
+        >
+          <span class="swatch-fill" style={`--swatch-dark: ${s.dark}; --swatch-light: ${s.light};`}></span>
+        </button>
+      ))}
+    </div>
+  </div>
+</color-switcher>
+
+<style is:global>
+  color-switcher {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .color-switcher-toggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--border-strong);
+    background: var(--bg-surface);
+    color: var(--copper);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(12px);
+  }
+
+  .color-switcher-toggle:hover {
+    border-color: var(--copper);
+    background: var(--bg-surface-hover);
+  }
+
+  .color-switcher-panel {
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 14px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-strong);
+    border-radius: 12px;
+    backdrop-filter: blur(12px);
+  }
+
+  .color-switcher-panel.open {
+    display: flex;
+  }
+
+  .color-switcher-label {
+    font-family: var(--font-heading);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .color-switcher-swatches {
+    display: flex;
+    gap: 6px;
+  }
+
+  .color-swatch {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    padding: 3px;
+    transition: all 0.2s ease;
+  }
+
+  .color-swatch.active {
+    border-color: var(--text-primary);
+  }
+
+  .color-swatch:hover {
+    transform: scale(1.15);
+  }
+
+  .swatch-fill {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--swatch-dark);
+  }
+
+  html:not(.dark) .swatch-fill {
+    background: var(--swatch-light);
+  }
+</style>
+
+<script>
+  const root = document.querySelector('.lux-root') as HTMLElement;
+  const toggle = document.querySelector('.color-switcher-toggle') as HTMLElement;
+  const panel = document.querySelector('.color-switcher-panel') as HTMLElement;
+  const swatches = document.querySelectorAll<HTMLElement>('.color-swatch');
+
+  // Restore saved scheme
+  const saved = localStorage.getItem('color-scheme') || 'copper';
+  root.dataset.accent = saved;
+  swatches.forEach((s) => s.classList.toggle('active', s.dataset.scheme === saved));
+
+  toggle.addEventListener('click', () => {
+    const open = panel.classList.toggle('open');
+    panel.setAttribute('aria-hidden', String(!open));
+  });
+
+  swatches.forEach((swatch) => {
+    swatch.addEventListener('click', () => {
+      const scheme = swatch.dataset.scheme!;
+      root.dataset.accent = scheme;
+      localStorage.setItem('color-scheme', scheme);
+      swatches.forEach((s) => s.classList.toggle('active', s === swatch));
+    });
+  });
+
+  // Close panel on click outside
+  document.addEventListener('click', (e) => {
+    if (!(e.target as Element).closest('color-switcher')) {
+      panel.classList.remove('open');
+      panel.setAttribute('aria-hidden', 'true');
+    }
+  });
+</script>
