@@ -227,6 +227,12 @@ html:not(.dark) .lux-grain {
   opacity: 0.02;
 }
 
+/* ── Selection ── */
+.lux-root ::selection {
+  background: var(--copper);
+  color: var(--bg);
+}
+
 /* ── Base Reset ── */
 .lux-root {
   background: var(--bg);
