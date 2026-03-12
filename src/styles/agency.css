@@ -638,38 +638,16 @@ html:not(.dark) .lux-grain {
   }
 }
 
-.lux-about-grid {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 80px;
-}
-
-@media (max-width: 768px) {
-  .lux-about-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-}
-
-.lux-about-label {
-  font-family: var(--font-heading);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--copper);
-  padding-top: 6px;
+.lux-about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
 }
 
 .lux-about-text p {
   color: var(--text-secondary);
-  font-size: 16px;
-  line-height: 1.85;
-  margin-bottom: 28px;
-}
-
-.lux-about-text p:last-child {
-  margin-bottom: 0;
+  font-size: 17px;
+  line-height: 1.9;
 }
 
 .lux-copper-text {

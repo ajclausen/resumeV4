@@ -5,10 +5,10 @@ export const BIO = {
   title: "System Engineer & Network Architect",
   tagline: "Bridging the gap between physical infrastructure and modern software.",
   summary: [
-    "I'm a self-taught System Engineer who transformed from zero technical knowledge into the sole network architect for 50+ smart parking facilities nationwide. My unconventional path through Apprentice University's hands-on program taught me that the best solutions come from understanding both the technical details and business impact.",
-    "At ECO Parking Technologies, I've built the infrastructure that powers some of the nation's largest parking deployments, including a 693-sensor Las Vegas casino requiring custom 10G fiber solutions. When our legacy system threatened to limit our growth, I led the migration to a modern Cloudflare-based architecture, eliminating vendor lock-in and saving thousands monthly.",
-    "Beyond infrastructure, I'm a builder at heart. I've created production applications that our teams use daily—from a React-based cost calculator that speeds up sales quotes to a full-stack project tracker that integrates with legacy systems.",
-    "Currently pursuing my BSCNE degree to formalize my practical experience, I'm excited about the intersection of IoT, cloud infrastructure, and smart city technology."
+    "I'm a self-taught System Engineer who transformed from zero technical knowledge into the **sole network architect for 50+ smart parking facilities** nationwide. My unconventional path through Apprentice University's hands-on program taught me that the best solutions come from understanding both the technical details and business impact.",
+    "At ECO Parking Technologies, I've built the infrastructure that powers some of the nation's largest parking deployments, including a **693-sensor Las Vegas casino** requiring custom 10G fiber solutions. When our legacy system threatened to limit our growth, I led the migration to a **modern Cloudflare-based architecture**, eliminating vendor lock-in and saving thousands monthly.",
+    "Beyond infrastructure, I'm a builder at heart. I've created **production applications** that our teams use daily—from a React-based cost calculator that speeds up sales quotes to a full-stack project tracker that integrates with legacy systems.",
+    "Currently pursuing my **BSCNE degree** to formalize my practical experience, I'm excited about the intersection of **IoT, cloud infrastructure, and smart city technology**."
   ],
   email: "andrew@clausen.app",
   location: "Remote / Indianapolis, IN"
