@@ -42,3 +42,15 @@ import { parseBold } from '../utils/parseBold';
     </div>
   </div>
 </section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.lux-exp-item').forEach((item) => {
+    function setOrigin(e: MouseEvent) {
+      const rect = item.getBoundingClientRect();
+      const mid = rect.top + rect.height / 2;
+      item.style.setProperty('--reveal-origin', e.clientY < mid ? 'top' : 'bottom');
+    }
+    item.addEventListener('mouseenter', setOrigin as EventListener);
+    item.addEventListener('mouseleave', setOrigin as EventListener);
+  });
+</script>

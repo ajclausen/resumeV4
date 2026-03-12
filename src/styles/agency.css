@@ -8,6 +8,7 @@
   --text-muted: #555555;
   --copper: #c9956b;
   --copper-light: #d4a574;
+  --copper-muted: rgba(201, 149, 107, 0.45);
   --copper-dim: rgba(201, 149, 107, 0.15);
   --copper-glow: rgba(201, 149, 107, 0.08);
   --rose: #c47d7d;
@@ -34,6 +35,7 @@ html:not(.dark) .lux-root {
   --text-muted: #94a3b8;
   --copper: #92643a;
   --copper-light: #a67544;
+  --copper-muted: rgba(146, 100, 58, 0.4);
   --copper-dim: rgba(146, 100, 58, 0.12);
   --copper-glow: rgba(146, 100, 58, 0.06);
   --rose: #9a5555;
@@ -529,7 +531,7 @@ html:not(.dark) .lux-grain {
   border-bottom: 1px solid var(--border-subtle);
 }
 
-/* Copper left border on hover */
+/* Copper left border on hover — direction-aware */
 .lux-exp-item::before {
   content: '';
   position: absolute;
@@ -539,7 +541,7 @@ html:not(.dark) .lux-grain {
   width: 2px;
   background: var(--copper);
   transform: scaleY(0);
-  transform-origin: top;
+  transform-origin: var(--reveal-origin, top);
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -638,11 +640,18 @@ html:not(.dark) .lux-grain {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 5px 14px;
-  border: 1px solid var(--border-strong);
-  color: var(--text-muted);
-  background: transparent;
+  border: 1px solid var(--border-stronger);
+  color: var(--text-secondary);
+  background: var(--hover-tint);
   transition: all 0.3s ease;
   cursor: default;
+}
+
+/* Light up all skills when parent job is hovered */
+.lux-exp-item:hover .lux-exp-skill {
+  border-color: var(--copper-muted);
+  color: var(--copper);
+  background: var(--hover-tint-strong);
 }
 
 .lux-exp-skill:hover {
@@ -675,7 +684,7 @@ html:not(.dark) .lux-grain {
   grid-template-columns: 1fr 1px 1.2fr;
   gap: 48px;
   align-items: start;
-  padding: 48px 0;
+  padding: 48px 24px;
   border-top: 1px solid var(--border-subtle);
   transition: background 0.4s ease;
   position: relative;
@@ -686,14 +695,14 @@ html:not(.dark) .lux-grain {
 }
 
 .lux-proj-item:hover {
-  background: var(--hover-tint);
+  background: var(--hover-tint-strong);
 }
 
 @media (max-width: 768px) {
   .lux-proj-item {
     grid-template-columns: 1fr;
     gap: 20px;
-    padding: 36px 0;
+    padding: 36px 16px;
   }
 }
 
