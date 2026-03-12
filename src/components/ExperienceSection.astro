@@ -1,0 +1,44 @@
+---
+import { EXPERIENCE } from '../data';
+import { parseBold } from '../utils/parseBold';
+---
+
+<section class="lux-exp-section">
+  <div class="lux-container">
+    <div data-reveal>
+      <div class="lux-section-header">
+        <span class="lux-section-num">02</span>
+        <h2 class="lux-section-title">Experience</h2>
+      </div>
+    </div>
+    <div class="lux-exp-list">
+      {EXPERIENCE.map((job, i) => (
+        <div data-reveal data-reveal-delay={String(i * 50)}>
+          <div class="lux-exp-item">
+            <div class="lux-exp-left">
+              <div class="lux-exp-company">{job.company}</div>
+              <div class="lux-exp-period">{job.period}</div>
+            </div>
+            <div>
+              <div class="lux-exp-role">{job.role}</div>
+              {Array.isArray(job.description) ? (
+                <ul class="lux-exp-desc">
+                  {job.description.map((desc) => (
+                    <li set:html={parseBold(desc)} />
+                  ))}
+                </ul>
+              ) : (
+                <p class="lux-exp-desc-single" set:html={parseBold(job.description)} />
+              )}
+              <div class="lux-exp-skills">
+                {job.skills.map((skill) => (
+                  <span class="lux-exp-skill">{skill}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

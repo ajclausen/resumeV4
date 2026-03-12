@@ -1,0 +1,79 @@
+---
+import { BIO } from '../data';
+
+const firstName = BIO.name.split(' ')[0];
+const lastName = BIO.name.split(' ').slice(1).join(' ');
+---
+
+<hero-section>
+  <section class="lux-hero">
+    <!-- Mouse-following glow -->
+    <div class="lux-hero-glow" data-glow></div>
+
+    <div class="lux-hero-content">
+      <div data-reveal>
+        <div class="lux-hero-label">Portfolio</div>
+      </div>
+
+      <div data-reveal data-reveal-delay="100">
+        <h1 class="lux-hero-name" data-hero-name>
+          <span>{firstName}</span>
+          <span>{lastName}</span>
+        </h1>
+      </div>
+
+      <div data-reveal data-reveal-delay="250">
+        <div class="lux-hero-line"></div>
+      </div>
+
+      <div data-reveal data-reveal-delay="350">
+        <p class="lux-hero-tagline">{BIO.tagline}</p>
+      </div>
+
+      <div data-reveal data-reveal-delay="450">
+        <div class="lux-hero-meta">
+          <a href={`mailto:${BIO.email}`} class="lux-hero-cta">
+            Get in touch
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+          </a>
+          <span class="lux-hero-location">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            {BIO.location}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="lux-hero-scroll">
+      Scroll
+    </div>
+  </section>
+</hero-section>
+
+<script>
+  class HeroSection extends HTMLElement {
+    connectedCallback() {
+      const section = this.querySelector<HTMLElement>('.lux-hero')!;
+      const glow = this.querySelector<HTMLElement>('[data-glow]')!;
+      const heroName = this.querySelector<HTMLElement>('[data-hero-name]')!;
+
+      // Mouse-following glow
+      section.addEventListener('mousemove', (e: MouseEvent) => {
+        const rect = section.getBoundingClientRect();
+        glow.style.left = `${e.clientX - rect.left}px`;
+        glow.style.top = `${e.clientY - rect.top}px`;
+      });
+
+      // Parallax on scroll
+      const onScroll = () => {
+        const y = window.scrollY;
+        const scale = 1 + y * 0.0001;
+        const opacity = Math.max(0, 1 - y * 0.0015);
+        heroName.style.transform = `scale(${scale})`;
+        heroName.style.opacity = `${opacity}`;
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+    }
+  }
+  customElements.define('hero-section', HeroSection);
+</script>

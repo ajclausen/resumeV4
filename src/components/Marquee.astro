@@ -1,0 +1,17 @@
+---
+import { TECH_CATEGORIES } from '../data';
+
+const allTech = TECH_CATEGORIES.flatMap(cat => cat.items.map(item => item.name));
+const repeated = [...allTech, ...allTech, ...allTech, ...allTech];
+---
+
+<div class="lux-marquee-wrap">
+  <div class="lux-marquee-track">
+    {repeated.map((tech) => (
+      <>
+        <span class="lux-marquee-item">{tech}</span>
+        <span class="lux-marquee-separator" aria-hidden="true"></span>
+      </>
+    ))}
+  </div>
+</div>

@@ -1,0 +1,30 @@
+---
+import { TECH_CATEGORIES } from '../data';
+---
+
+<section class="lux-tech-section">
+  <div class="lux-container">
+    <div data-reveal>
+      <div class="lux-section-header">
+        <span class="lux-section-num">05</span>
+        <h2 class="lux-section-title">Tech Stack</h2>
+      </div>
+    </div>
+    <div class="lux-tech-categories">
+      {TECH_CATEGORIES.map((cat, i) => (
+        <div data-reveal data-reveal-delay={String(i * 80)}>
+          <div>
+            <div class="lux-tech-cat-title">{cat.title}</div>
+            <div class="lux-tech-grid">
+              {cat.items.map((item) => (
+                <div class="lux-tech-item">
+                  {item.name}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

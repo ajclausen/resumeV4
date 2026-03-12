@@ -1,0 +1,20 @@
+---
+import { BIO } from '../data';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer>
+  <div class="lux-container">
+    <div class="lux-footer">
+      <span class="lux-footer-text">
+        {BIO.name} &mdash; {currentYear}
+      </span>
+      <div class="lux-footer-mark">
+        <div class="lux-footer-dot"></div>
+        <div class="lux-footer-line"></div>
+        <div class="lux-footer-dot"></div>
+      </div>
+    </div>
+  </div>
+</footer>

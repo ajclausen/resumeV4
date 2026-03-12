@@ -1,5 +1,3 @@
-import type { ComponentType } from 'react';
-
 export interface Skill {
   name: string;
 }
@@ -44,14 +42,11 @@ export interface Project {
 export interface SocialLink {
   name: string;
   url: string;
-  icon: ComponentType<{ className?: string }>;
   label: string;
 }
 
 export interface TechItem {
   name: string;
-  icon: ComponentType<{ className?: string }>;
-  color: string;
 }
 
 export interface TechCategory {

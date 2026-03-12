@@ -1,0 +1,27 @@
+---
+import { BIO } from '../data';
+import { parseBold } from '../utils/parseBold';
+---
+
+<section class="lux-about-section">
+  <div class="lux-container">
+    <div data-reveal>
+      <div class="lux-section-header">
+        <span class="lux-section-num">01</span>
+        <h2 class="lux-section-title">About</h2>
+      </div>
+    </div>
+    <div class="lux-about-grid">
+      <div data-reveal>
+        <div class="lux-about-label">Profile</div>
+      </div>
+      <div class="lux-about-text">
+        {BIO.summary.map((para, i) => (
+          <div data-reveal data-reveal-delay={String(i * 80)}>
+            <p set:html={parseBold(para)} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

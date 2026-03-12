@@ -1,5 +1,4 @@
 import type { Job, Education, Certification, Project, TechCategory } from './types';
-import { Server, Globe, Code, Database, Cpu, Shield, Wifi, Layers, Terminal, Cloud, Radio, Activity, Video, Lock } from 'lucide-react';
 
 export const BIO = {
   name: "Andrew Clausen",
@@ -195,36 +194,36 @@ export const TECH_CATEGORIES: TechCategory[] = [
     title: "Infrastructure & Network",
     gradient: "from-cyan-500 to-blue-600",
     items: [
-      { name: "Ubiquiti UniFi", icon: Wifi, color: "text-blue-400" },
-      { name: "Ubuntu Core/Snaps", icon: Terminal, color: "text-orange-500" },
-      { name: "Cloudflare Zero Trust", icon: Shield, color: "text-orange-400" },
-      { name: "VLAN Design", icon: Layers, color: "text-cyan-400" },
-      { name: "Azure Cloud", icon: Cloud, color: "text-blue-500" },
-      { name: "Docker & LXC", icon: Server, color: "text-blue-400" }
+      { name: "Ubiquiti UniFi" },
+      { name: "Ubuntu Core/Snaps" },
+      { name: "Cloudflare Zero Trust" },
+      { name: "VLAN Design" },
+      { name: "Azure Cloud" },
+      { name: "Docker & LXC" }
     ]
   },
   {
     title: "Development",
     gradient: "from-violet-500 to-purple-600",
     items: [
-      { name: "React/TypeScript", icon: Code, color: "text-cyan-400" },
-      { name: "Python", icon: Terminal, color: "text-yellow-300" },
-      { name: "Node.js", icon: Server, color: "text-green-500" },
-      { name: "PostgreSQL", icon: Database, color: "text-blue-400" },
-      { name: "GraphQL", icon: Globe, color: "text-pink-500" },
-      { name: "Next.js", icon: Globe, color: "text-white" }
+      { name: "React/TypeScript" },
+      { name: "Python" },
+      { name: "Node.js" },
+      { name: "PostgreSQL" },
+      { name: "GraphQL" },
+      { name: "Next.js" }
     ]
   },
   {
     title: "Specialized Engineering",
     gradient: "from-pink-500 to-rose-600",
     items: [
-      { name: "WebRTC", icon: Video, color: "text-red-400" },
-      { name: "RTSP Streaming", icon: Radio, color: "text-orange-400" },
-      { name: "GStreamer", icon: Activity, color: "text-yellow-400" },
-      { name: "Protocol Reverse Eng.", icon: Lock, color: "text-emerald-400" },
-      { name: "Packet Analysis", icon: Activity, color: "text-blue-400" },
-      { name: "IoT Sensors", icon: Cpu, color: "text-green-400" }
+      { name: "WebRTC" },
+      { name: "RTSP Streaming" },
+      { name: "GStreamer" },
+      { name: "Protocol Reverse Eng." },
+      { name: "Packet Analysis" },
+      { name: "IoT Sensors" }
     ]
   }
 ];

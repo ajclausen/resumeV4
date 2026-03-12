@@ -1,8 +1,86 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Design4 } from '../components/designs/Design4';
+import CopperDivider from '../components/CopperDivider.astro';
+import Marquee from '../components/Marquee.astro';
+import HeroSection from '../components/HeroSection.astro';
+import AboutSection from '../components/AboutSection.astro';
+import ExperienceSection from '../components/ExperienceSection.astro';
+import ProjectsSection from '../components/ProjectsSection.astro';
+import CredentialsSection from '../components/CredentialsSection.astro';
+import TechStackSection from '../components/TechStackSection.astro';
+import ContactSection from '../components/ContactSection.astro';
+import FooterSection from '../components/FooterSection.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
 ---
 
 <Layout title="Andrew Clausen | System Engineer & Network Architect">
-	<Design4 client:load />
+  <div class="lux-root">
+    <div class="lux-grain"></div>
+    <ThemeToggle />
+    <HeroSection />
+    <CopperDivider />
+    <Marquee />
+    <CopperDivider />
+    <AboutSection />
+    <CopperDivider />
+    <ExperienceSection />
+    <CopperDivider />
+    <Marquee />
+    <CopperDivider />
+    <ProjectsSection />
+    <CopperDivider />
+    <CredentialsSection />
+    <CopperDivider />
+    <TechStackSection />
+    <CopperDivider />
+    <ContactSection />
+    <CopperDivider />
+    <FooterSection />
+  </div>
 </Layout>
+
+<script>
+  // Scroll-triggered reveal system
+  const REVEAL_SELECTOR = '[data-reveal]';
+
+  function initReveal() {
+    const elements = document.querySelectorAll<HTMLElement>(REVEAL_SELECTOR);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target as HTMLElement;
+            const delay = parseInt(el.dataset.revealDelay || '0', 10);
+            setTimeout(() => {
+              el.classList.add('reveal-visible');
+            }, delay);
+            observer.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    elements.forEach((el) => {
+      // Check if element is already in viewport
+      const rect = el.getBoundingClientRect();
+      const inViewport = rect.top < window.innerHeight && rect.bottom > 0;
+
+      if (inViewport) {
+        // Already visible — don't animate
+        return;
+      }
+
+      // Below viewport — hide and observe
+      el.classList.add('reveal-hidden');
+      observer.observe(el);
+    });
+  }
+
+  // Run on initial load
+  initReveal();
+
+  // Re-run on Astro page transitions (if ever added)
+  document.addEventListener('astro:after-swap', initReveal);
+</script>

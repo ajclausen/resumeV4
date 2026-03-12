@@ -1,0 +1,43 @@
+---
+import { PROJECTS } from '../data';
+import { parseBold } from '../utils/parseBold';
+
+function sectionNum(n: number): string {
+  return String(n).padStart(2, '0');
+}
+---
+
+<section class="lux-proj-section">
+  <div class="lux-container">
+    <div data-reveal>
+      <div class="lux-section-header">
+        <span class="lux-section-num">03</span>
+        <h2 class="lux-section-title">Projects</h2>
+      </div>
+    </div>
+    <div class="lux-proj-list">
+      {PROJECTS.map((project, i) => (
+        <div data-reveal data-reveal-delay={String(i * 80)}>
+          <div class="lux-proj-item">
+            <div class="lux-proj-left">
+              <span class="lux-proj-num">{sectionNum(i + 1)}</span>
+              <h3 class="lux-proj-title">{project.title}</h3>
+              <div class="lux-proj-tech">
+                {project.techStack.map((tech) => (
+                  <span>{tech}</span>
+                ))}
+              </div>
+            </div>
+            <div class="lux-proj-divider-vert"></div>
+            <div class="lux-proj-right">
+              {project.featured && (
+                <div class="lux-proj-featured">Featured</div>
+              )}
+              <p class="lux-proj-desc" set:html={parseBold(project.description)} />
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
