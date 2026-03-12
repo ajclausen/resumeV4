@@ -29,7 +29,7 @@ export function useTheme() {
     const tc = document.querySelector('meta[name="theme-color"]');
     if (tc) tc.setAttribute('content', theme === 'dark' ? '#020617' : '#f8fafc');
 
-    // Dispatch event so other components (like CommandPalette) can sync up
+    // Dispatch event so other components can sync up
     window.dispatchEvent(new CustomEvent('theme-change', { detail: theme }));
   }, [theme]);
 
