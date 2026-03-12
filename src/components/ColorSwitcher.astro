@@ -132,7 +132,7 @@ const schemes = [
   const swatches = document.querySelectorAll<HTMLElement>('.color-swatch');
 
   // Restore saved scheme
-  const saved = localStorage.getItem('color-scheme') || 'copper';
+  const saved = localStorage.getItem('color-scheme') || 'teal';
   root.dataset.accent = saved;
   swatches.forEach((s) => s.classList.toggle('active', s.dataset.scheme === saved));
 
